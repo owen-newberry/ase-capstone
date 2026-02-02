@@ -4,9 +4,7 @@ theme: default
 paginate: true
 ---
 
-# Upscaling-Aware Game Architecture
-
-## Using Software Design Patterns for Temporal Upscaling Compatibility
+# Using Software Design Patterns for Temporal Upscaling Compatibility
 
 **Project Plan Presentation**
 
@@ -36,14 +34,6 @@ Student and indie projects constantly break temporal reconstruction:
 
 ---
 
-# Research Foundation
-
-## Scholarly Question
-
-*"How have recent advancements in computer hardware, particularly GPUs and their integration of AI-focused architectures, reshaped the software engineering principles, design patterns, and development workflows of modern video games?"*
-
----
-
 # Research Areas
 
 ### GPU Evolution
@@ -62,8 +52,8 @@ Student and indie projects constantly break temporal reconstruction:
 
 # Features and Reqs. Overview
 
-Number of features: 6
-Number of requirements: 28
+Number of features: 4
+Number of requirements: 18
 
 ---
 
@@ -102,20 +92,7 @@ Number of requirements: 28
 
 ---
 
-# Feature 4: Performance Measurement
-
-**Purpose**: Collect quantitative data for validation
-
-- Collect frame-time metrics
-- Measure CPU/GPU utilization
-- Track memory usage and allocation patterns
-- Track 1% low and 0.1% low FPS
-- Export performance data for analysis
-- Generate automated performance reports
-
----
-
-# Feature 5: DLSS/FSR Integration
+# Feature 4: DLSS/FSR Integration
 
 **Purpose**: Test patterns with actual upscaling technology
 
@@ -153,7 +130,7 @@ Number of requirements: 28
 
 ## Week 2: Workload Budgeting System
 - Implement per-frame time budget manager
-- Create AI task queue with priority system
+- Create task queue with priority system
 - Add time-slicing for expensive operations
 - Build budget logging and monitoring
 
@@ -167,10 +144,10 @@ Number of requirements: 28
 - Convert test effects to time-based updates
 - Validate motion vector consistency across frames
 
-## Week 4: Integration & Initial Testing
-- Integrate all three systems together
-- Build performance measurement baseline
+## Week 4: System Integration
+- Integrate fixed-timestep, budgeting, and temporal systems
 - Create test scenes for pattern validation
+- Build baseline performance metrics
 - Document API and usage patterns
 
 ---
@@ -183,10 +160,10 @@ Number of requirements: 28
 - Test all patterns with upscaling enabled
 - Measure upscaling performance impact
 
-## Week 6: Validation & Refinement
+## Week 6: Validation & Final Testing
 - Validate visual quality and temporal stability
-- Profile and optimize bottlenecks
-- Generate automated performance reports
+- Test edge cases and stress scenarios
+- Generate performance comparison reports
 - Final documentation and sprint retrospective
 
 ---
