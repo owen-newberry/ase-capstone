@@ -4,9 +4,9 @@ theme: default
 paginate: true
 ---
 
-# GPU-Aware Game Architecture
+# Upscaling-Aware Game Architecture
 
-## Validating Patterns for Temporal Upscaling Compatibility
+## Using Software Design Patterns for Temporal Upscaling Compatibility
 
 **Project Plan Presentation**
 
@@ -16,9 +16,7 @@ Owen Newberry | ASE Capstone
 
 # Problem Domain
 
-## The Challenge
-
-Modern GPUs have AI-focused hardware (DLSS, FSR, frame generation), but **most developers don't know how to write code that actually works well with it**.
+Modern GPUs have AI-focused hardware (DLSS, FSR, frame generation), but most games don't take full advantage of these tools.
 
 Student and indie projects constantly break temporal reconstruction:
 - Frame-rate-coupled game logic
@@ -58,7 +56,14 @@ Student and indie projects constantly break temporal reconstruction:
 - DLSS/FSR technical implementation
 ### Pattern Analysis
 - What changed in development workflows?
-- Which patterns emerged from hardware constraints?
+- Which patterns emerged from hardware constraints/capabilities?
+
+---
+
+# Features and Reqs. Overview
+
+Number of features: 6
+Number of requirements: 28
 
 ---
 
@@ -123,13 +128,65 @@ Student and indie projects constantly break temporal reconstruction:
 
 # Development Roadmap
 
-## Sprint 1 (4 weeks) — Research Paper
+## Sprint 1 (4 weeks)
 
 - Week 1: GPU evolution literature review + start writing
 - Week 2: Case studies (UE5, Unity, DLSS/FSR) + methodology
 - Week 3: Blackwell deep dive + findings/analysis
 - Week 4: Complete writing, revision, finalization
 
-**Concurrent**: Engine selection, installation, planning
+**Concurrent (Weeks 2-4)**:
+- Engine selection and installation
+- Set up project structure and version control
+- Begin fixed-timestep simulation loop
+- Initial interpolation system prototype
+
+---
+
+# Sprint 2 (6 weeks) 
+
+## Week 1: Fixed-Timestep Completion
+- Complete fixed-timestep simulation loop
+- Finalize simulation/render separation
+- Polish interpolation system for visual state
+- Validate motion vector stability
+
+## Week 2: Workload Budgeting System
+- Implement per-frame time budget manager
+- Create AI task queue with priority system
+- Add time-slicing for expensive operations
+- Build budget logging and monitoring
+
+---
+
+# Sprint 2 (continued)
+
+## Week 3: Temporal Coherence & Motion Vectors
+- Implement single-writer motion authority pattern
+- Create motion vector generation system
+- Convert test effects to time-based updates
+- Validate motion vector consistency across frames
+
+## Week 4: Integration & Initial Testing
+- Integrate all three systems together
+- Build performance measurement baseline
+- Create test scenes for pattern validation
+- Document API and usage patterns
+
+---
+
+# Sprint 2 (continued)
+
+## Week 5: DLSS/FSR Integration
+- Integrate DLSS and/or FSR into prototype
+- Configure upscaling pipeline settings
+- Test all patterns with upscaling enabled
+- Measure upscaling performance impact
+
+## Week 6: Validation & Refinement
+- Validate visual quality and temporal stability
+- Profile and optimize bottlenecks
+- Generate automated performance reports
+- Final documentation and sprint retrospective
 
 ---
