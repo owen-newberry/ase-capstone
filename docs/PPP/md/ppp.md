@@ -4,8 +4,6 @@ theme: default
 paginate: true
 ---
 
-<!-- _class: lead -->
-
 # GPU-Aware Game Architecture
 
 ## Validating Patterns for Temporal Upscaling Compatibility
@@ -123,17 +121,6 @@ Student and indie projects constantly break temporal reconstruction:
 
 ---
 
-# Feature 6: Game Prototype
-
-**Purpose**: Realistic stress-test context
-
-- Create confined test environment
-- Implement player movement and interaction
-- Add AI entity with variable workload
-- Include environmental effects for testing
-
----
-
 # Development Roadmap
 
 ## Sprint 1 (4 weeks) — Research Paper
@@ -146,21 +133,3 @@ Student and indie projects constantly break temporal reconstruction:
 **Concurrent**: Engine selection, installation, planning
 
 ---
-
-## Sprint 2 (6 weeks) — Code Implementation
-
-### Phase 1: Core Patterns (Weeks 1-3)
-- Implement fixed-timestep simulation
-- Add workload budgeting system
-- Build temporal coherence framework
-- Integrate performance measurement
-
-### Phase 2: DLSS/FSR Integration (Weeks 4-5)
-- Enable DLSS and/or FSR
-- Test patterns with upscaling active
-- Measure performance metrics
-
-### Phase 3: Validation & Documentation (Week 6)
-- Run comprehensive tests
-- Document implementation findings
-- Compare results against research predictions
