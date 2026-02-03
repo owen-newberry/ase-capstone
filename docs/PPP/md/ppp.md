@@ -29,9 +29,9 @@ Student and indie projects constantly break temporal reconstruction:
 
 # The Solution
 
-**Research Paper**: How GPU advancements (especially Blackwell) are reshaping software architecture in game development
+**Research Paper**: How GPU advancements are reshaping software architecture in game development
 
-**Code Project**: Apply research findings by implementing a prototype using validated upscaler-compatible patterns
+**Prototype**: Apply research findings by implementing a prototype using upscaler-friendly design patterns
 
 ---
 
