@@ -4,7 +4,8 @@ theme: default
 paginate: true
 ---
 
-# Using Software Design Patterns for Temporal Upscaling Compatibility
+# How AI is Reshaping Video Game Development
+## Using Software Design Patterns for Temporal Upscaling Compatibility
 
 **Project Plan Presentation**
 
