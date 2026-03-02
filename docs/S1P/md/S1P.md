@@ -7,15 +7,15 @@ paginate: true
 # How AI is Reshaping Video Game Development
 ## Using Software Design Patterns for Temporal Upscaling Compatibility
 
-**Project Plan Presentation**
+**Sprint 1 Presentation**
 
 Owen Newberry | ASE Capstone
 
 ---
 
-# Project Overview - The Problem
+# The Problem
 
-**Modern temporal upscaling (DLSS, FSR, TSR) requires clean software architecture to work effectively**
+**Modern temporal upscaling (DLSS, FSR, TSR) requires clean software architecture and specific design to work effectively**
 
 - Temporal upscalers need stable motion vectors, predictable timing, coherent frame-to-frame data
 - Poor game-side code causes ghosting, smearing, artifacts, performance issues
@@ -30,23 +30,11 @@ Owen Newberry | ASE Capstone
 
 **Target deliverable:** Complete research paper draft identifying:
 1. Temporal upscaler requirements from vendor docs (AMD, NVIDIA, Apple, Epic)
-2. Four concrete software design patterns addressing these requirements
-3. Connections to classic Gang of Four design patterns
-4. Methodology for prototype implementation and evaluation (Sprint 2)
-
----
-
-# What Was Built - Research Artifacts
-
-### 1. **Quick Reference Document**
-- Software patterns → upscaler performance connections
-- 40+ citations from vendor docs, GDC talks, engine documentation
-- Organized by pattern with key quotes and sources
-
-### 2. **Research Paper Draft**
-- ~9,200 words
-- Integrated 16 Gang of Four patterns prominently throughout Section 4
-- Each of 4 patterns includes "Related GoF Patterns" subsection with concrete examples
+2. Background and Literature Analysis of available resources
+3. Four concrete software design patterns addressing these requirements
+4. Connections to software engineering design patterns (Strategy, Observer, etc.)
+5. Methodology for prototype implementation and evaluation (Sprint 2)
+6. Signifigance of Work and Future Applications
 
 ---
 
@@ -65,30 +53,28 @@ Owen Newberry | ASE Capstone
 
 **Week 1:** Project definition, scope refinement
 - Identified research question
-- Created project plan focusing on software engineering (not graphics internals)
+- Created project plan focusing on software engineering of game systems (not graphics internals)
 
 **Week 2:** Literature gathering phase
 - Surveyed AMD FSR 2/3 docs, NVIDIA DLSS guides, Unreal TSR docs, Apple MetalFX
 - Collected GDC presentations, technical reports
+- Wrote background and literature analysis
+
+---
 
 **Week 3:** Pattern extraction and design
 - Translated upscaler requirements into software constraints
 - Drafted four core patterns using standard pattern format
 
-**Week 4:** Paper writing and GoF integration
-- Completed draft with prominent GoF pattern connections throughout
+**Week 4:** Finished paper writing
+- Completed paper with prominent GoF pattern connections throughout
 
 ---
 
 # Sprint 1 Retrospective - What Went Well
 
-**Clear research question established early**
-- Focused on software engineering, not GPU internals
-- Bridged gap between graphics constraints and software architecture
-
 **Strong source base built**
 - 40+ citations from authoritative sources (vendor docs, engine docs, established game-programming literature)
-- Quick reference doc enables fast citation lookup
 
 **Patterns grounded in real constraints**
 - Every pattern directly addresses documented upscaler requirements
@@ -104,11 +90,7 @@ Owen Newberry | ASE Capstone
 
 **Methodology section is theoretical**
 - Test scenarios designed but not yet validated
-- Quantitative metrics (frame time, motion vector error) are proposed but not measured
-
-**Pattern format verbose**
-- Each pattern ~1.5 pages—may be too detailed for some audiences
-- Need summarized version for poster/presentation
+- Quantitative metrics (frame time, motion vector error) are proposed but not yet measured (will be addressed in Sprint 2)
 
 **Time estimation was off**
 - Underestimated time to properly document design pattern connections
@@ -116,33 +98,45 @@ Owen Newberry | ASE Capstone
 
 ---
 
-# Learning with AI - Topic 1: 
+# Learning with AI - Topic 1: Real-Time Screen Capture
 
-**Used Claude/ChatGPT to deeply understand:**
-- 
-
-**Approach:**
-- 
-
-**Key insight:** 
+**Used AI to deeply understand:**
+- Trade-offs between Windows Desktop Duplication API and BitBlt for low-latency screen capture
+- How to structure a multi-threaded capture pipeline (capture → process → render) without blocking or dropping frames
+- Region-of-Interest capture strategies to minimize unnecessary GPU/CPU work
 
 ---
 
-# Learning with AI - Topic 2: 
+**Approach:**
+- Asked AI to compare capture APIs and explain when each is appropriate
+- Used AI to understand thread synchronization patterns and queue-based architectures
+- Researched change detection techniques to skip processing on static frames
 
-**Used Claude/ChatGPT to deeply understand:**
-- 
+**Key insight:** Keeping the capture, processing, and rendering stages in separate threads with thread-safe handoffs is critical for maintaining a responsive overlay without impacting game performance
+
+---
+
+# Learning with AI - Topic 2: OCR for Game UI
+
+**Used AI to deeply understand:**
+- Why game fonts (outlines, shadows, anti-aliasing) break standard OCR engines and how preprocessing fixes it
+- Trade-offs between Tesseract, EasyOCR, and PaddleOCR for real-time game text extraction
+- Image preprocessing pipelines — adaptive thresholding, morphological operations, color channel isolation
+
+---
 
 **Approach:**
-- 
+- Asked AI to explain how each OCR engine handles stylized text and where they fail
+- Used AI to brainstorm preprocessing steps for specific UI elements (inventory slots, stack counts)
+- Researched confidence scoring and domain-validated autocorrection strategies
 
-**Key insight:** 
+**Key insight:** Preprocessing is more impactful than engine choice — isolating the text region and normalizing contrast before OCR dramatically reduces misreads on stylized game UI
 
 ---
 
 # Sprint 2 Plan - Goals
 
-**Primary goal:** Implement and evaluate a working prototype
+**Primary goal:** Implement and evaluate a working prototype to validate upscaler compatibility with design patterns
 
 ### Features to implement:
 1. **Fixed-timestep game loop** with interpolated rendering (R1.1-R1.3)
@@ -169,34 +163,4 @@ Owen Newberry | ASE Capstone
 
 ---
 
-# Sprint 2 Plan - Evaluation Strategy
-
-**Quantitative metrics:**
-- Frame-time mean and standard deviation (baseline vs pattern-aware)
-- Motion-vector reprojection error (measure temporal coherence)
-- Workload budget adherence (spike frequency and magnitude)
-
-**Qualitative assessment:**
-- Side-by-side video captures showing ghosting, smearing, temporal stability
-- Stress test scenarios: fast-moving objects, thin geometry, variable workload
-
-**Comparison:**
-- Baseline: Variable timestep, multiple transform writers, frame-based effects, no budgeting
-- Pattern-aware: Fixed timestep, single motion authority, time-based effects, budgeted workload
-
-**Success criteria:** Measurable improvement in frame-time stability and reduction in visual artifacts
-
----
-
 **Questions?**
-
----
-
-# Thank You
-
-Owen Newberry  
-newberryo1@mymail.nku.edu
-
-ASE 485 Capstone Project  
-Northern Kentucky University  
-Spring 2026
